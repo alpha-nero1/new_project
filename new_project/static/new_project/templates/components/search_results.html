@@ -1,0 +1,21 @@
+<br>
+<br>
+<div class="container text-muted">
+    <h1>Results</h1>
+    <hr/>
+    <br>
+
+    {% if sites %}
+        {% for site in sites %}
+            <div>
+                <h2><a href="/sites/{{ site.id }}">{{ site.title }}</a></h2>
+                <p>Subject: {{ site.subject }}, Votes: {{ site.votes }}</p>
+                <p>tags {% for tag in site.get_tag_list %} #{{ tag }} {% endfor %} </p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div>
+            <p>Unfortunately nothing matches your search.</p>
+        </div>
+    {% endif %}
+</div>

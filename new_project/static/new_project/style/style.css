@@ -1,0 +1,103 @@
+/*  Author: Alessandro Alberga
+ *  General CSS
+ */
+
+#container p { display: block; }
+
+li {
+    display: inline-block;
+    width: auto;
+}
+
+/* to actually list li items cascading downwards */
+.same_line_exception {
+    display: default;
+}
+
+p {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+blockquote {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+pre {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+}
+
+navbar {
+    position: absolute;
+}
+
+ /* This text is in Helvetica */
+.class {
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+footer {
+    float: right;
+    margin-top: 5%;
+    margin-right: 8%;
+
+}
+
+.tag_input {
+    width: 100%;
+}
+
+.bootstrap-tagsinput {
+    width: 100%;
+}
+
+.label {
+    line-height: 2 !important;
+}
+
+.profile_pictue {
+    width: 20%;
+    height: 20%;
+}
+
+.author_section {
+    display: inline;
+}
+
+.black {
+   color: black;
+}
+
+.user_avatar {
+    object-fit: cover;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+.votes {
+    text-align: center;
+
+}
+
+#votes {
+    vertical-align: middle;
+}
+
+.jess_class {
+    color: blue;
+}
+

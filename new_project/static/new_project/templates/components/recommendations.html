@@ -1,0 +1,18 @@
+<div id="recommendations">
+    <h1>Recommended for you</h1>
+    <hr/>
+    {% if recommendations %}
+
+        {% for site in recommendations %}
+            <div>
+                <h2><a href="/sites/{{ site.id }}">{{ site.title }}</a></h2>
+                <p>Votes: {{ site.votes }}</p>
+                <p>tags {% for tag in site.get_tag_list %} #{{ tag }} {% endfor %} </p>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Start adding tags so we can recommend you quality content!</p>
+    {% endif %}
+</div>
+

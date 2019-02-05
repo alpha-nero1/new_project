@@ -1,0 +1,16 @@
+#### List of documentation rules ####
+1. Adhere to proper tab indentation for readability
+2. donr ## for inline comments, just looks weird
+
+
+#### python documentation page prefix ####
+
+## Author: Alessandro Alberga
+## Purpose -
+
+
+#### CSS documentation style ####
+
+/*  Start comments from up here, never on last line
+ *
+ */

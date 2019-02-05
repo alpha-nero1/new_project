@@ -1,0 +1,11 @@
+  <div class="row">
+        <div class="col"> <h2>New Folder</h2> </div>
+
+        <form class="col form-inline my-2 my-lg-0" action="create_folder/" method="post">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Folder Name" aria-label="Folder" name="folder_name" id="folder_name">
+            <input type="hidden" name="url" value="{{ request.path }}" />
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="folder_button" id="folder_button">Add +</button>
+        </form>
+
+  </div>

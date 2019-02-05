@@ -1,0 +1,41 @@
+<!-- extend base file -->
+{% extends 'templates/foundations/site_foundation.html' %}
+
+{% block title %} Create {% endblock %}
+
+{% load staticfiles %}
+{% block body %}
+
+    <br>
+    <br>
+
+    <div class="album text-muted">
+        <div class="container">
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <h1>Create New Site</h1>
+                <hr/>
+                <h4>Title</h4>
+                <input name="title" type="text"/>
+                <br>
+                <h4>Tags</h4>
+                <input type="text" name="tags" id="tag_field" data-role="tagsinput" class="tag_input">
+                <br>
+                <h4>Content</h4>
+                <textarea cols="140" rows="20" name="content" id="editor"></textarea>
+                <!-- We need to instantiate the editor -->
+                <script>
+                    ClassicEditor
+                        .create( document.querySelector( '#editor' ) )
+                        .catch( error => {
+                            console.error( error );
+                        } );
+                </script>
+                <br>
+                <button class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

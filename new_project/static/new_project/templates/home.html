@@ -1,0 +1,43 @@
+<!-- extend base file -->
+{% extends 'templates/foundations/site_foundation.html' %}
+
+{% load staticfiles %}
+{% block title %} The New Project {% endblock %}
+
+{% block body %}
+    <!---
+    <section class="jumbotron text-center todays_feature">
+          <div class="container">
+            <h1 class="jumbotron-heading">Welcome {{ request.user.user_name }}</h1>
+            <p class="lead text-muted black">Help others help you, start creating content today!</p>
+            <p>
+              <a href="/sites/create_new/" class="btn btn-primary">Create</a>
+              <a href="#" class="btn btn-secondary">Dismiss</a>
+            </p>
+          </div>
+    </section>
+    --->
+    <div id="todaysfeature">
+      {% include 'templates/components/todays_feature.html' %}
+    </div>
+
+    <div id="container" class="container">
+        <div class="album text-muted">
+            <br>
+            <br>
+
+            {% include 'templates/components/recommendations.html' %}
+            <br><br>
+            <h1>Trending</h1>
+            <hr/>
+            {% for site in trending %}
+                <div>
+                    <h2><a href="/sites/{{ site.id }}">{{ site.title }}</a></h2>
+                    <p>Votes: {{ site.votes }}</p>
+                    <p>tags {% for tag in site.get_tag_list %} #{{ tag }} {% endfor %} </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

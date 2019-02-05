@@ -1,0 +1,29 @@
+<!-- extend base file -->
+{% extends 'templates/foundations/auth_foundation.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+
+    <div class="album text-muted">
+        <div class="container">
+            <div>
+                <h1>Login</h1>
+                <form action = "" method = "post">
+                    {% csrf_token %}
+                    <p>Email:</p>
+                    <input type="email" name="email"/>
+                    <p>Password:</p>
+                    <input type="password" name="password"/>
+                    <br>
+                    <br>
+                    <button type="submit" text ="login">Login</button>
+                    <p>Don't have an account? <a href="/auth/sign_up/">signup here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

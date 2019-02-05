@@ -1,0 +1,27 @@
+<div id="comments">
+    <!-- the comment data in this template takes from the view 'comments' not from the site -->
+    {% for comment in comments %}
+        <div class="row comment">
+            <ul>
+                <li>
+                    <p>{{comment.text}}</p>
+                </li>
+                <li>
+                    <p>at: {{ comment.time_stamp }}</p>
+                </li>
+                <li>
+                    <p>by: {{ comment.owner.user_name }}</p>
+                </li>
+                <li>
+                    <p>votes: {{ comment.votes }}</p>
+                </li>
+
+                {% if comment.check_user %}
+                <li>
+                    <p>delete</p>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>

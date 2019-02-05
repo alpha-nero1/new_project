@@ -1,0 +1,65 @@
+<!-- extend base file -->
+{% extends 'templates/foundations/site_foundation.html' %}
+
+{% block title %} Account {% endblock %}
+
+{% load staticfiles %}
+
+{% block body %}
+    <br>
+    <div class="text-muted"> <!-- STYLE CONTAINER DIV -->
+
+
+        <div class="container"> <!-- ACCOUNT CONTAINER -->
+
+            <div class="row"> <!-- PROFILE HEADER -->
+                <!-- WORKS IS NOT SECURE BUT -->
+                <h1>{{ request.user.user_name }}</h1>
+                <hr/>
+                <img class="user_avatar" src="{{ request.user.image }}"/>
+            </div>
+            <hr/>
+            <div> <!-- INFO ROW -->
+                <h1>My Information</h1>
+                <p>info</p>
+                <hr/>
+            </div>
+            <div> <!-- IMAGE UPLOAD ROW -->
+                <form method="post" action="/account/image_upload/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <input type="file" name="myfile">
+                        <button type="submit">Upload</button>
+                    </div>
+                </form>
+            </div>
+            <hr/>
+            <div> <!-- TAGS ROW --> <!-- TAGS FEATUR IST GEBROCHEN! -->
+                {% csrf_token %}
+                <h1>My Tags</h1>
+                <p>add all your tags in the field then press add to confirm them</p>
+                <input type="text" id="tag_field" data-role="tagsinput" class="tag_input">
+                <button id="tag_button">Add</button>
+
+                <p id="tags">
+                    {% for tag in tags %}
+                        {{tag}}
+                    {% endfor %}
+                </p>
+            </div>
+            <hr/>
+            <div> <!-- MY SITES ROW -->
+                <h1>My Sites</h1>
+                <hr/>
+                {% for site in my_sites %}
+                    <div>
+                        <h2><a href="/sites/{{ site.id }}">{{ site.title }}</a></h2>
+                        <p>Subject: {{ site.subject }}, Votes: {{ site.votes }}</p>
+                        <p>tags {% for tag in site.get_tag_list %} #{{ tag }} {% endfor %} </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

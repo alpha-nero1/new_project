@@ -1,0 +1,38 @@
+<!-- extend base file -->
+{% extends 'templates/foundations/auth_foundation.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Sign up {% endblock %}
+
+{% block body %}
+    <div class="album text-muted">
+        <div class="container">
+            <div>
+                <h1>Sign Up</h1>
+                <form action = "" method = "post">
+                    {% csrf_token %}
+                    <p>Email:</p>
+                    <input type="email" name="email"/>
+                    <p>Username:</p>
+                    <input type="text" name="user_name"/>
+                    <p>Password:</p>
+                    <input type="password" name="password1"/>
+                    <p>Confirm Password:</p>
+                    <input type="password" name="password2"/>
+                    <p>DOB:</p>
+                    <input type="date" name="date_of_birth"/>
+                    <br>
+                    <br>
+                    <p>Tags:</p>
+                    <p>Enter in your tags e.g "#language #italian", these are used to generate recommended learning materials for you.</p>
+                    <input type="text" name="tags"/>
+                    <br>
+                    <br>
+                    <button text ="login"  >Sign Up</button>
+                    <p>Have an account? <a href="/auth/login/">login here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock%}

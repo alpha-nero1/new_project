@@ -1,0 +1,17 @@
+<div id="replies">
+    {% for reply in replies %}
+        <div class="row">
+            <ul>
+                <li>
+                    <p>{{ reply.text}}</p>
+                </li>
+                <li>
+                    <p>at: {{ reply.time_stamp }}</p>
+                </li>
+                <li>
+                    <p>by: {{ reply.owner.user_name }}</p>
+                </li>
+            </ul>
+        </div>
+    {% endfor %}
+</div>
