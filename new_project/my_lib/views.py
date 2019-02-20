@@ -7,7 +7,7 @@ from .models import Folder
 from sites.models import Site
 
 
-## view to display folder - includes MyLib
+# view to display folder - includes MyLib
 class FolderView(View):
     template_name = "templates/folder.html"
 
@@ -19,39 +19,37 @@ class FolderView(View):
 
         return render(request, self.template_name, {"folder": folder,
                                                     "sub_folders": sub_folders,
-                                                    "sub_sites": folder.sites.all() })
+                                                    "sub_sites": folder.sites.all()})
 
 
-
-## view to create a folder
+# view to create a folder
 class CreateFolder(View):
 
     def post(self, request, universal_id=None):
 
-        parent_folder = folder_check(request, universal_id) # this folder
+        parent_folder = folder_check(request, universal_id)  # this folder
 
-        new_folder = Folder(parent=parent_folder, name=request.POST["folder_name"], user=request.user)
+        new_folder = Folder(parent=parent_folder,
+                            name=request.POST["folder_name"], user=request.user)
         new_folder.save()
 
         return redirect(parent_folder.get_return_path())
 
 
-
-## view to delete a folder
+# view to delete a folder
 class DeleteFolder(View):
 
-     def post(self, request, universal_id=None):
+    def post(self, request, universal_id=None):
 
-         parent_folder = folder_check(request, universal_id)  # this folder
+        parent_folder = folder_check(request, universal_id)  # this folder
 
-         folder = Folder.objects.get(universal_id=request.POST['folder'])
-         folder.delete()
+        folder = Folder.objects.get(universal_id=request.POST['folder'])
+        folder.delete()
 
-         return redirect(parent_folder.get_return_path())
+        return redirect(parent_folder.get_return_path())
 
 
-
-## view to delete a site from a folder
+# view to delete a site from a folder
 class DeleteSite(View):
 
     def post(self, request, universal_id):
