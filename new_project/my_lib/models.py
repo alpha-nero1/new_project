@@ -25,4 +25,4 @@ class Folder(models.Model):
         return '/MyLib/' + unicode(self.universal_id) + '/'
 
     def __str__(self):
-        return self.created_at + self.name + '/'
+        return self.name + '/'

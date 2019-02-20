@@ -11,6 +11,7 @@ from django.db.models.aggregates import Count
 from datetime import datetime
 from my_lib.models import Folder
 
+
 class Home(View):
     template_name = "templates/home.html"
 
@@ -24,21 +25,27 @@ class Home(View):
 
         new = self.is_new(request.user)
         todays_feature = DayFeature.objects.all()
-        my_lib = Folder.objects.get(user=request.user, name='MyLib', parent=None)
+        my_lib = Folder.objects.get(user=request.user, parent=None)
 
         if todays_feature:
-            todays_feature = todays_feature[todays_feature.count() - 1] ## causes neg indexing if none exist
+            todays_feature = todays_feature[
+                todays_feature.count() -
+                1]  ## causes neg indexing if none exist
 
         if Site.objects.all():
-            trending = Site.objects.annotate(Count('votes')).order_by('-votes')[:20]
+            trending = Site.objects.annotate(
+                Count('votes')).order_by('-votes')[:20]
             recommendations = self.recommend(request)
 
         ## make a callable specific to mobile, we don't need to give them the html data
-        return render(request, self.template_name, {'trending': trending,
-                                                    'todays_feature': todays_feature,
-                                                    'new': new,
-                                                    'recommendations': recommendations,
-                                                    'my_lib': my_lib })
+        return render(
+            request, self.template_name, {
+                'trending': trending,
+                'todays_feature': todays_feature,
+                'new': new,
+                'recommendations': recommendations,
+                'my_lib': my_lib
+            })
 
     def rand(self, objects):
         count = objects.count()
@@ -58,6 +65,6 @@ class Home(View):
         if tags:
             user = request.user
             user.clean_tags(tags)
-            query = functools.reduce(operator.or_, [Q(tags__icontains=str(tag)) for tag in tags])
+            query = functools.reduce(
+                operator.or_, [Q(tags__icontains=str(tag)) for tag in tags])
             return Site.objects.filter(query).order_by('-votes')[:10]
-

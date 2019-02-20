@@ -1,0 +1,8 @@
+{
+  "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.6/bin/python3",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.formatting.provider": "yapf",
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.linting.pylintArgs": ["--load-plugins=pylint_django"]
+}
