@@ -2,102 +2,116 @@
  *  General CSS
  */
 
-#container p { display: block; }
+#container p {
+  display: block;
+}
 
 li {
-    display: inline-block;
-    width: auto;
+  display: inline-block;
+  width: auto;
 }
 
 /* to actually list li items cascading downwards */
 .same_line_exception {
-    display: default;
+  display: default;
 }
 
 p {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 blockquote {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 21px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 30px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
 }
 pre {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 13px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 18.5714px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
 }
 
 navbar {
-    position: absolute;
+  position: absolute;
 }
 
- /* This text is in Helvetica */
+/* This text is in Helvetica */
 .class {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 footer {
-    float: right;
-    margin-top: 5%;
-    margin-right: 8%;
-
+  float: right;
+  margin-top: 5%;
+  margin-right: 8%;
 }
 
 .tag_input {
-    width: 100%;
+  width: 100%;
 }
 
 .bootstrap-tagsinput {
-    width: 100%;
+  width: 100%;
 }
 
 .label {
-    line-height: 2 !important;
+  line-height: 2 !important;
 }
 
 .profile_pictue {
-    width: 20%;
-    height: 20%;
+  width: 20%;
+  height: 20%;
 }
 
 .author_section {
-    display: inline;
+  display: inline;
 }
 
 .black {
-   color: black;
+  color: black;
 }
 
 .user_avatar {
-    object-fit: cover;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
+  object-fit: cover;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
 }
 
 .votes {
-    text-align: center;
-
+  text-align: center;
 }
 
 #votes {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
-.jess_class {
-    color: blue;
+/**
+ * Class that styles website links within the folder structure.
+ */
+.website {
+  color: blue;
 }
 
+.website:hover {
+  color: blue;
+}
+
+.folder {
+  color: black;
+}
+
+.folder:hover {
+  color: gray;
+}

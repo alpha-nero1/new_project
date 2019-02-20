@@ -22,7 +22,7 @@ class Folder(models.Model):
     sites = models.ManyToManyField(Site)
 
     def get_return_path(self):
-        return '/MyLib/' + unicode(self.universal_id) + '/'
+        return '/MyLib/' + str(self.universal_id) + '/'
 
     def __str__(self):
         return self.name + '/'

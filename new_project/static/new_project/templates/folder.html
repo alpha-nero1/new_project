@@ -21,7 +21,7 @@
 
             {% for folder in sub_folders %}
                 <div class="row">
-                        <div class="col"><h2><a href="/MyLib/{{ folder.universal_id }}/">{{ folder.name }}</a></h2></div>
+                        <div class="col"><h2><a class="folder" href="/MyLib/{{ folder.universal_id }}/">{{ folder.name }}</a></h2></div>
                         <div class="col">
                             <form action="delete_folder/" method="post">
                                 {% csrf_token %}
@@ -34,7 +34,7 @@
 
             {% for site in sub_sites %}
                 <div class="row">
-                    <div class="col"><h2><a href="{{ site.get_url }}">{{ site.title }}</a></h2></div>
+                    <div class="col"><h2><a class="website" href="{{ site.get_url }}">{{ site.title }}</a></h2></div>
                     <div class="col">
                         <form action="delete_site/" method="post">
                             {% csrf_token %}
