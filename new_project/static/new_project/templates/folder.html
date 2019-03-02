@@ -20,27 +20,27 @@
             {% include 'templates/components/new_folder.html' %}
 
             {% for folder in sub_folders %}
-                <div class="row">
-                        <div class="col"><h2><a class="folder" href="/MyLib/{{ folder.universal_id }}/">{{ folder.name }}</a></h2></div>
+                <div class="row folder">
+                        <div class="col"><h2><a class="folder" href="/MyLib/{{ folder.universal_id }}/">f: {{ folder.name }}</a></h2></div>
                         <div class="col">
                             <form action="delete_folder/" method="post">
                                 {% csrf_token %}
                                 <input name="folder" type="hidden" value="{{ folder.universal_id }}" />
-                                <button>x</button>
+                                <button type="submit" class="btn btn-danger">x</button>
                             </form>
                         </div>
                 </div>
             {% endfor %}
 
             {% for site in sub_sites %}
-                <div class="row">
-                    <div class="col"><h2><a class="website" href="{{ site.get_url }}">{{ site.title }}</a></h2></div>
+                <div class="row website">
+                    <div class="col"><h2><a class="website" href="{{ site.get_url }}">s: {{ site.title }}</a></h2></div>
                     <div class="col">
                         <form action="delete_site/" method="post">
                             {% csrf_token %}
                             <input name="site" type="hidden" value="{{ site.id }}" />
                             <input name="folder" type="hidden" value="{{ folder.name }}" />
-                            <button>x</button>
+                            <button type="submit" class="btn btn-danger">x</button>
                         </form>
                     </div>
                 </div>

@@ -101,7 +101,9 @@ footer {
  * Class that styles website links within the folder structure.
  */
 .website {
+  background-color: lightgray;
   color: blue;
+  font-size: 16px;
 }
 
 .website:hover {
@@ -109,7 +111,9 @@ footer {
 }
 
 .folder {
+  background-color: lightgray;
   color: black;
+  font-size: 16px;
 }
 
 .folder:hover {
